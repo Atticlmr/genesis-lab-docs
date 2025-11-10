@@ -22,25 +22,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-
-          pip install sphinx \
-
+          pip install "sphinx>=6,<7" \
                       pydata-sphinx-theme \
-
                       myst-parser \
-
                       sphinx-copybutton \
-
                       sphinx-subfigure \
-
                       sphinxcontrib-video \
-
                       sphinx-togglebutton \
-
                       sphinx-design
 
       - name: Build HTML
-        run: make html
+        run: sphinx-build -b html source build/html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
