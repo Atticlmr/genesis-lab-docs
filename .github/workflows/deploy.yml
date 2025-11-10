@@ -22,7 +22,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install sphinx pydata-sphinx-theme myst-parser
+
+          pip install sphinx \
+
+                      pydata-sphinx-theme \
+
+                      myst-parser \
+
+                      sphinx-copybutton \
+
+                      sphinx-subfigure \
+
+                      sphinxcontrib-video \
+
+                      sphinx-togglebutton \
+
+                      sphinx-design
 
       - name: Build HTML
         run: make html
