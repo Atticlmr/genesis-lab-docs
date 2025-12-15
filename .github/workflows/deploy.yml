@@ -1,0 +1,46 @@
+name: Deploy Docs to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install "sphinx>=6,<7" \
+                      pydata-sphinx-theme \
+                      myst-parser \
+                      sphinx-copybutton \
+                      sphinx-subfigure \
+                      sphinxcontrib-video \
+                      sphinx-togglebutton \
+                      sphinx-design
+
+      - name: Build HTML
+        run: sphinx-build -b html source build/html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/html
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
