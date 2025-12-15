@@ -1,1 +1,4 @@
-build/
+build
+.venv/
+source/user_guide/reference/_autosummary/
+.DS_Store
