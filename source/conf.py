@@ -4,9 +4,8 @@ import sys
 _local_repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, os.pardir))
 if os.path.isdir(os.path.join(_local_repo_root, "genesis")):
     sys.path.insert(0, _local_repo_root)
-import genesis as gs
 
-__version__ = gs.__version__
+__version__ = "0.0.1"
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:

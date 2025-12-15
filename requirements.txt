@@ -35,6 +35,5 @@ numba
 pymeshlab
 pymeshfix
 genesis-world
-torch
 PyOpenGL
 PyOpenGL_accelerate
